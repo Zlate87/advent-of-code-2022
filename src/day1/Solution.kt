@@ -1,3 +1,7 @@
+package day1
+
+import readInput
+
 fun main() {
     fun getElves(input: List<String>): ArrayList<Int> {
         val elves = arrayListOf<Int>()
@@ -26,11 +30,11 @@ fun main() {
     }
 
     // test if implementation meets criteria from the description, like:
-    val testInput = readInput("Day01_test")
+    val testInput = readInput("day1/Input_test")
     check(part1(testInput) == 24000)
     check(part2(testInput) == 45000)
 
-    val input = readInput("Day01")
+    val input = readInput("day1/Input")
     println(part1(input))
     println(part2(input))
 }

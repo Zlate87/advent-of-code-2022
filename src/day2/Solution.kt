@@ -1,3 +1,7 @@
+package day2
+
+import readInput
+
 fun main() {
 
     fun score1(round: String): Int {
@@ -47,11 +51,11 @@ fun main() {
     }
 
     // test if implementation meets criteria from the description, like:
-    val testInput = readInput("Day02_test")
+    val testInput = readInput("day2/Input_test")
     check(part1(testInput) == 15)
     check(part2(testInput) == 12)
 
-    val input = readInput("Day02")
+    val input = readInput("day2/Input")
     println(part1(input))
     println(part2(input))
 }

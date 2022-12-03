@@ -1,3 +1,7 @@
+package day3
+
+import readInput
+
 fun main() {
 
     fun getIntValue(it: Char) = if (it.isLowerCase()) it.toInt() - 96 else it.toInt() - 38
@@ -23,12 +27,11 @@ fun main() {
     }
 
     // test if implementation meets criteria from the description, like:
-    val testInput = readInput("Day03_test")
-    println(part1(testInput))
+    val testInput = readInput("day3/Input_test")
     check(part1(testInput) == 157)
     check(part2(testInput) == 70)
 
-    val input = readInput("Day03")
+    val input = readInput("day3/Input")
     println(part1(input))
     println(part2(input))
 }
