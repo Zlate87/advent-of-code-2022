@@ -1,28 +1,17 @@
 package day1
 
-import readInput
+import java.io.File
 
 fun main() {
-    fun getElves(input: List<String>): ArrayList<Int> {
-        val elves = arrayListOf<Int>()
-        var elve = 0
-        input.forEach {
-            if (it == "") {
-                elves.add(elve)
-                elve = 0
-            } else {
-                elve += it.toInt()
-            }
-        }
-        elves.add(elve)
-        return elves
+    fun getElves(input: String): List<Int> {
+        return input.split("\n\n").map { it -> it.split("\n").sumOf { it.toInt() } }
     }
 
-    fun part1(input: List<String>): Int {
+    fun part1(input: String): Int {
         return getElves(input).max()
     }
 
-    fun part2(input: List<String>): Int {
+    fun part2(input: String): Int {
         return getElves(input)
             .sortedByDescending { it }
             .take(3)
@@ -30,11 +19,11 @@ fun main() {
     }
 
     // test if implementation meets criteria from the description, like:
-    val testInput = readInput("day1/Input_test")
+    val testInput = File("src/day1/Input_test.txt").readText()
     check(part1(testInput) == 24000)
     check(part2(testInput) == 45000)
 
-    val input = readInput("day1/Input")
+    val input = File("src/day1/Input.txt").readText()
     println(part1(input))
     println(part2(input))
 }
