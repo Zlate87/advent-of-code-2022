@@ -13,7 +13,7 @@ fun main() {
 
     fun part2(input: String): Int {
         return getElves(input)
-            .sortedByDescending { it }
+            .sortedDescending()
             .take(3)
             .sum()
     }
