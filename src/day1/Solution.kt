@@ -3,16 +3,22 @@ package day1
 import java.io.File
 
 fun main() {
-    fun getElves(input: String): List<Int> {
-        return input.split("\n\n").map { it -> it.split("\n").sumOf { it.toInt() } }
+    fun getElvesCalories(input: String): List<Int> {
+        return input
+            .split("\n\n")
+            .map { elfCaloriesString ->
+                elfCaloriesString.split("\n")
+                    .sumOf { elfCalories -> elfCalories.toInt() }
+            }
     }
 
     fun part1(input: String): Int {
-        return getElves(input).max()
+        return getElvesCalories(input)
+            .max()
     }
 
     fun part2(input: String): Int {
-        return getElves(input)
+        return getElvesCalories(input)
             .sortedDescending()
             .take(3)
             .sum()
