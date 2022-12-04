@@ -4,35 +4,36 @@ import readInput
 
 fun main() {
 
-    fun temp(pair: String) = pair.split("-").map { it.toInt() }
+    fun String.toSections() = this
+        .split("-")
+        .map { it.toInt() }
 
-    fun temo2(firstElf: List<Int>): Set<Int> {
+    fun List<Int>.toSectionSet(): Set<Int> {
         val set = HashSet<Int>()
-        for (i in firstElf[0]..firstElf[1]) {
+        for (i in this[0]..this[1]) {
             set.add(i)
         }
         return set
     }
 
-    fun temp(input: List<String>) = input
+    fun List<String>.toElvesPairSectionsSets() = this
         .map { pairString -> pairString.split(",") }
         .map { pairList ->
-            val firstElf = temp(pairList[0])
-            val secondElf = temp(pairList[1])
-            val firstSet = temo2(firstElf)
-            val secondSet = temo2(secondElf)
-            Pair(firstSet, secondSet)
+            Pair(
+                pairList[0].toSections().toSectionSet(),
+                pairList[1].toSections().toSectionSet()
+            )
         }
 
     fun part1(input: List<String>): Int {
-        return temp(input)
+        return input.toElvesPairSectionsSets()
             .count {
                 it.first.containsAll(it.second) or it.second.containsAll(it.first)
             }
     }
 
     fun part2(input: List<String>): Int {
-        return temp(input)
+        return input.toElvesPairSectionsSets()
             .count {
                 it.first.intersect(it.second).isNotEmpty()
             }
