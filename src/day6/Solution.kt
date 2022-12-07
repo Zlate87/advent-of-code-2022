@@ -5,7 +5,6 @@ import java.io.File
 fun main() {
 
     fun String.positionOfUnique(size: Int) = this
-        .toCharArray()
         .toList()
         .windowed(size, 1)
         .map { it.toSet() }
